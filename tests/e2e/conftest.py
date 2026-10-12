@@ -1,5 +1,6 @@
 """A real server and a fresh browser context for every E2E test."""
-
+def pytest_addoption(parser):
+    parser.addoption("--headed", action="store_true", default=False)
 import os
 import socket
 import threading
@@ -53,7 +54,7 @@ def browser(pytestconfig):
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as playwright:
-        options = {"headless": not pytestconfig.getoption("--headed")}
+        options = {"headless": not pytestconfig.getoption("--headed", default=False)}
         executable = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH")
         if executable:
             options["executable_path"] = executable
