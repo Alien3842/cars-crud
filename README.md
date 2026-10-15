@@ -67,12 +67,19 @@ cars-crud/
 |       `-- app.js               # fetch(), DOM updates, form submission
 |-- tests/
 |   |-- conftest.py              # Isolated test databases and TestClient
-|   |-- unit/test_schemas.py
-|   |-- integration/test_database.py
-|   |-- api/test_cars_api.py
+|   |-- unit/
+|   |   |-- test_schemas.py
+|   |   `-- test_workshop_unit.py        # Testing workshop exercises
+|   |-- integration/
+|   |   |-- test_database.py
+|   |   `-- test_workshop_integration.py # Testing workshop exercises
+|   |-- api/
+|   |   |-- test_cars_api.py
+|   |   `-- test_workshop_api.py         # Testing workshop exercises
 |   `-- e2e/
 |       |-- conftest.py          # Live server and browser fixtures
-|       `-- test_browser.py
+|       |-- test_browser.py
+|       `-- test_workshop_e2e.py         # Testing workshop exercises
 |-- requirements.txt
 |-- requirements-dev.txt
 |-- pytest.ini
